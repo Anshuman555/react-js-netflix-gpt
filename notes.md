@@ -4,6 +4,7 @@
 
 - Create React App
 - Configured Tailwind
+- Install Routing
 
 ## Features
 
