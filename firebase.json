@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "netflix-gpt-alex-2026",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

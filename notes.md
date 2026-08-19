@@ -5,6 +5,12 @@
 - Create React App
 - Configured Tailwind
 - Install Routing
+- Routinf of App
+- Form Validation
+- useRef Hook
+- Firebase Setup
+- Deployed App to production
+- Sign Up user account
 
 ## Features
 
