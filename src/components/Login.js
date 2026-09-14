@@ -8,7 +8,6 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
@@ -24,7 +23,6 @@ const authErrors = {
 };
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isSignIn, setIsSignIn] = useState(false);
   const userName = useRef(null);
@@ -69,7 +67,6 @@ const Login = () => {
                 displayName: name,
               }),
             );
-            navigate("/browse");
           }),
         )
         .catch(showError);
@@ -79,9 +76,6 @@ const Login = () => {
         email.current.value,
         password.current.value,
       )
-        .then(() => {
-          navigate("/browse");
-        })
         .catch(showError);
     }
   };

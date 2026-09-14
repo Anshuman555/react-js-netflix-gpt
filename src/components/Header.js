@@ -1,21 +1,46 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const user = useSelector((store) => store.user);
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        navigate("/");
       })
       .catch((error) => {
         navigate("/page-not-found");
       });
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(
+          addUser({
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+          }),
+        ); 
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+
+    return () => unsubscribe();
+  }, [dispatch]);
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="container mx-auto p-4 flex justify-between">
