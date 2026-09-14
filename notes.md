@@ -14,6 +14,8 @@
 - Implement Sign In user API
 - Created Redux Store with user slice
 - Update state based on Auth
+- Implemented Sign out
+- Update Profile
 
 ## Features
 
