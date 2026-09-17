@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
@@ -12,6 +12,14 @@ const Header = () => {
   const navigate = useNavigate();
 
   const user = useSelector((store) => store.user);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -42,20 +50,28 @@ const Header = () => {
     return () => unsubscribe();
   }, [dispatch]);
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      <div className="container mx-auto p-4 flex justify-between">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        isScrolled
+          ? "bg-[#141414]"
+          : "bg-gradient-to-b from-black/80 via-black/40 to-transparent"
+      }`}
+    >
+      <div className="container mx-auto flex items-center justify-between p-4">
         <a href="/">
           <img
             src="https://occ.a.nflxso.net/dnmt/api/v6/iL4oJVDYZ8KLSrJ6eG2OwtghbfQ/AAAAAfwxusEeCteu-L_QQ56_G2cohyI1E4BIh2uyr5t9gDhH0CKWHw3NVhndjuF7yQ26z3cYq_lnzY5pP6OarHyiibuiy2jIIa5sIhSvgal1S6u9YDVAyVoX6osPniEKN-dYy77H_pLfOCD7.svg"
             alt="App Logo"
-            className="max-w-[200px] object-contain"
+            className="w-[92px] object-contain md:w-[120px]"
           />
         </a>
         <div>
           {user !== null && (
-            <div>
-              <div>Welcome Back {user.displayName}</div>
-              <button onClick={handleSignOut} className="cursor-pointer z-5">
+            <div className="flex items-center gap-3">
+              <div className="hidden text-sm text-gray-300 sm:block">
+                Welcome Back {user.displayName}
+              </div>
+              <button onClick={handleSignOut} className="cursor-pointer rounded bg-white/10 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-white/20">
                 Sign Out
               </button>
             </div>

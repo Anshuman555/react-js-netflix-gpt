@@ -16,6 +16,15 @@
 - Update state based on Auth
 - Implemented Sign out
 - Update Profile
+- Fetch Movies form IMDB
+- Making Redux slice for the Movies
+- Custom hook for Now Playing Movies
+- Update Store with Movies Data
+- Planning for MainContainer & SecondaryContainer
+- Fetch Data for Trailer Video
+- Embedded the YouTube video and make it autoplay and mute
+- Tailwind classes to make Main Container look awesome
+- Build Secondary Container
 
 ## Features
 
