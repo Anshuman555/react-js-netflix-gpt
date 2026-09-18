@@ -25,6 +25,11 @@
 - Embedded the YouTube video and make it autoplay and mute
 - Tailwind classes to make Main Container look awesome
 - Build Secondary Container
+- Build secondarty component
+- Custom hooks for Popular, Top Rated & Upcoming Movies
+- Merged all the Movies lists into a single moviesSlice
+- Build MovieList & MovieCard components
+- Netflix style UI for the Browse page
 
 ## Features
 

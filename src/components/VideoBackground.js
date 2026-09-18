@@ -31,7 +31,7 @@ const VideoBackground = ({ movieId }) => {
           allowFullScreen
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/20 to-transparent shadow-[inset_0_-120px_100px_-40px_#141414]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/50 to-transparent shadow-[inset_0_-150px_110px_-50px_#141414]" />
     </div>
   );
 };

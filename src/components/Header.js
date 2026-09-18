@@ -57,12 +57,12 @@ const Header = () => {
           : "bg-gradient-to-b from-black/80 via-black/40 to-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between p-4">
+      <div className="flex items-center justify-between px-4 py-3 md:px-12">
         <a href="/">
           <img
             src="https://occ.a.nflxso.net/dnmt/api/v6/iL4oJVDYZ8KLSrJ6eG2OwtghbfQ/AAAAAfwxusEeCteu-L_QQ56_G2cohyI1E4BIh2uyr5t9gDhH0CKWHw3NVhndjuF7yQ26z3cYq_lnzY5pP6OarHyiibuiy2jIIa5sIhSvgal1S6u9YDVAyVoX6osPniEKN-dYy77H_pLfOCD7.svg"
             alt="App Logo"
-            className="w-[92px] object-contain md:w-[120px]"
+            className="w-[90px] object-contain md:w-[148px]"
           />
         </a>
         <div>
